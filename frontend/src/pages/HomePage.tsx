@@ -25,7 +25,7 @@ const Homepage: React.FC = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/users');
+                const res = await axios.get('https://familytree-5qbq.onrender.com/users');
                 setUsers(res.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
