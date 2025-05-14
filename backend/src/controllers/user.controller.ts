@@ -45,16 +45,16 @@ export const updateUser = async (id: string, data: UpdateUserInput) => {
 // Get a user by ID (with family info populated)
 export const getUserById = async (id: string) => {
   return await User.findById(id)
-    .populate("father", "name gender photo")
-    .populate("mother", "name gender photo")
-    .populate("spouse", "name gender photo");
+    .populate("father", "_id name gender photo")
+    .populate("mother", "_id name gender photo")
+    .populate("spouse", "_id name gender photo");
 };
 // Get all users
 export const getAllUsers = async () => {
   return await User.find()
-    .populate("father", "name gender photo")
-    .populate("mother", "name gender photo")
-    .populate("spouse", "name gender photo")
+    .populate("father", "_id name gender photo")
+    .populate("mother", "_id name gender photo")
+    .populate("spouse", "_id name gender photo")
     .sort({ createdAt: -1 });
 };
 // Delete a user

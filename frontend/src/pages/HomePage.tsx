@@ -25,7 +25,7 @@ const Homepage: React.FC = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const res = await axios.get('https://familytree-5qbq.onrender.com/users');
+                const res = await axios.get('http://localhost:5000/users');
                 setUsers(res.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -98,7 +98,11 @@ const Homepage: React.FC = () => {
                                 </thead>
                                 <tbody>
                                     {currentUsers.map((user) => (
-                                        <tr key={user._id} className="hover:bg-gray-50">
+                                        <tr
+                                            key={user._id}
+                                            className="hover:bg-gray-50 cursor-pointer"
+                                            onClick={() => navigate(`/${user._id}`)}
+                                        >
                                             <td className="py-2 px-3 border-b">
                                                 {user.photo ? (
                                                     <img
@@ -120,6 +124,7 @@ const Homepage: React.FC = () => {
                                         </tr>
                                     ))}
                                 </tbody>
+
                             </table>
                         </div>
 
