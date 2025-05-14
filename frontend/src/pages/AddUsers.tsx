@@ -34,9 +34,9 @@ const AddUser: React.FC = () => {
         const fetchLists = async () => {
             try {
                 const [fatherRes, motherRes, spouseRes] = await Promise.all([
-                    axios.get(`http://localhost:5000/users/list/fatherList?date=${birthDate}`),
-                    axios.get(`http://localhost:5000/users/list/motherList?date=${birthDate}`),
-                    axios.get(`http://localhost:5000/users/list/spouceList?date=${birthDate}&gender=${gender}`)
+                    axios.get(`https://familytree-5qbq.onrender.com/users/list/fatherList?date=${birthDate}`),
+                    axios.get(`https://familytree-5qbq.onrender.com/users/list/motherList?date=${birthDate}`),
+                    axios.get(`https://familytree-5qbq.onrender.com/users/list/spouceList?date=${birthDate}&gender=${gender}`)
                 ]);
 
                 setFatherList(Array.isArray(fatherRes.data) ? fatherRes.data : []);
@@ -71,7 +71,7 @@ const AddUser: React.FC = () => {
                 spouse
             };
 
-            const response = await axios.post('http://localhost:5000/users', userData);
+            const response = await axios.post('https://familytree-5qbq.onrender.com/users', userData);
             console.log('User created:', response.data);
             alert('User created successfully!');
             setName("")
